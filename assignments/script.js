@@ -23,18 +23,35 @@ for(let i=1; i<=18; i++) {
 
   if(elem[i].children[2].innerHTML == "-"){
     scoreTotal = scoreTotal + 0;
-    overTotal = overTotal + 0;
+    
   } else{
     scoreTotal = scoreTotal + Number.parseInt(elem[i].children[2].innerHTML);
+    
+  }
+  if(elem[i].children[3].innerHTML == "-"){
+    
+    overTotal = overTotal + 0;
+  } else{
     overTotal = overTotal + Number.parseInt(elem[i].children[3].innerHTML);
   }
-  
 
 }
 document.getElementById("parTotal").innerHTML = parTotal;
 document.getElementById("scoreTotal").innerHTML = scoreTotal;
 document.getElementById("overTotal").innerHTML = overTotal;
 
+//function updateOverTotal
+function updateOverTotal(){
+  for(let i=1; i<=18; i++) {
+    if(elem[i].children[3].innerHTML == "-"){
+    
+      overTotal = overTotal + 0;
+    } else{
+      overTotal = overTotal + Number.parseInt(elem[i].children[3].innerHTML);
+    }  
+  }
+  document.getElementById("overTotal").innerHTML = overTotal;
+}
 // Clear hole
 function clear (elem){
   let currentScore = elem.children[2].innerHTML;
@@ -43,9 +60,9 @@ function clear (elem){
   scoreTotal = scoreTotal - currentScore;
   
   document.getElementById("scoreTotal").innerHTML = scoreTotal;
-  overTotal = overTotal - 1;
+  
   elem.children[3].innerHTML = "-";
-  document.getElementById("overTotal").innerHTML = overTotal;
+  updateOverTotal();
 }
 // create an "add1" function
 function add1 (elem) {
@@ -55,8 +72,7 @@ function add1 (elem) {
     elem.children[3].innerHTML = Number.parseInt(elem.children[2].innerHTML) - Number.parseInt(elem.children[1].innerHTML);
     
     document.getElementById("scoreTotal").innerHTML = scoreTotal;
-    overTotal = overTotal + Number.parseInt(elem.children[3].innerHTML);
-    document.getElementById("overTotal").innerHTML = overTotal;
+    updateOverTotal();
   }
   else {
     let currentScore = elem.children[2].innerHTML;
@@ -65,8 +81,7 @@ function add1 (elem) {
     scoreTotal = scoreTotal + 1;
     elem.children[3].innerHTML = Number.parseInt(elem.children[2].innerHTML) - Number.parseInt(elem.children[1].innerHTML);
     document.getElementById("scoreTotal").innerHTML = scoreTotal;
-    overTotal = overTotal + Number.parseInt(elem.children[3].innerHTML);
-    document.getElementById("overTotal").innerHTML = overTotal;
+    updateOverTotal();
   }
 }
 
@@ -82,8 +97,7 @@ function sub1 (elem) {
     scoreTotal = scoreTotal - 0;
     elem.children[3].innerHTML = Number.parseInt(elem.children[2].innerHTML) - Number.parseInt(elem.children[1].innerHTML);
     document.getElementById("scoreTotal").innerHTML = scoreTotal;
-    overTotal = overTotal - 0;
-    document.getElementById("overTotal").innerHTML = overTotal;
+    updateOverTotal();
   }
   else {
     let currentScore = elem.children[2].innerHTML;
@@ -92,7 +106,6 @@ function sub1 (elem) {
     scoreTotal = scoreTotal - 1;
     elem.children[3].innerHTML = Number.parseInt(elem.children[2].innerHTML) - Number.parseInt(elem.children[1].innerHTML);
     document.getElementById("scoreTotal").innerHTML = scoreTotal;
-    overTotal = overTotal - Number.parseInt(elem.children[3].innerHTML);
-    document.getElementById("overTotal").innerHTML = overTotal;
+    updateOverTotal();
   }
 }
