@@ -11,7 +11,7 @@ let elem = [];
 // elem[1].children[4].children[0].onclick = function(){add1(elem[1]);};
 let parTotal = 0;
 let scoreTotal = 0;
-let overTotal = 0;
+
 for(let i=1; i<=18; i++) {
   // console.log(i);
   elem[i] = document.getElementById(i.toString());
@@ -28,8 +28,8 @@ for(let i=1; i<=18; i++) {
     scoreTotal = scoreTotal + Number.parseInt(elem[i].children[2].innerHTML);
     
   }
+  let overTotal = 0;
   if(elem[i].children[3].innerHTML == "-"){
-    
     overTotal = overTotal + 0;
   } else{
     overTotal = overTotal + Number.parseInt(elem[i].children[3].innerHTML);
@@ -42,6 +42,7 @@ document.getElementById("overTotal").innerHTML = overTotal;
 
 //function updateOverTotal
 function updateOverTotal(){
+  let overTotal = 0;
   for(let i=1; i<=18; i++) {
     if(elem[i].children[3].innerHTML == "-"){
     
