@@ -28,8 +28,8 @@ for(let i=1; i<=18; i++) {
     scoreTotal = scoreTotal + Number.parseInt(elem[i].children[2].innerHTML);
     
   }
-  let overTotal = 0;
   
+ 
 
 }
 document.getElementById("parTotal").innerHTML = parTotal;
