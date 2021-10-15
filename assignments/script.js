@@ -29,16 +29,12 @@ for(let i=1; i<=18; i++) {
     
   }
   let overTotal = 0;
-  if(elem[i].children[3].innerHTML == "-"){
-    overTotal = overTotal + 0;
-  } else{
-    overTotal = overTotal + Number.parseInt(elem[i].children[3].innerHTML);
-  }
+  
 
 }
 document.getElementById("parTotal").innerHTML = parTotal;
 document.getElementById("scoreTotal").innerHTML = scoreTotal;
-document.getElementById("overTotal").innerHTML = overTotal;
+document.getElementById("overTotal").innerHTML = 0;
 
 //function updateOverTotal
 function updateOverTotal(){
